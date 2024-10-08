@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block styles %}
+  <style>
+    /* Inline CSS for desktop screens */
+    @media (min-width: 768px) {
+      .container-custom {
+        width: 50%; /* Adjust as needed */
+      }
+    }
+    .text-justify {
+        text-align: justify;
+    }
+  </style>
+{% endblock styles %}
+
+{% block title %}About Page{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-5">
+  <div class="d-flex justify-content-center align-items-center">
+    <!-- Center vertically -->
+    <div class="card mb-3 mx-auto" style="max-width: 760px">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            src="/static/wink2.png"
+            class="img-fluid rounded-start pt-2 px-2"
+            alt="image"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fs-4">Elhan Raza</h5>
+            <p class="card-text text-justify">
+              I am a dedicated BTech student pursuing AI & ML at St. Thomas'
+              College of Engineering and Technology, Kolkata. With a knack for
+              learning new skills and languages like Python, C, and Java, I
+              thrive in both independent and team environments. My goal is to
+              contribute to innovative projects through creativity, dedication,
+              and continuous learning
+            </p>
+            <p class="card-text">
+              <small class="text-body-secondary">1st April, 2024</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 container-custom">
+  <div class="d-flex justify-content-center align-items-center">
+    <div>
+      <p class="d-flex gap-1 justify-content-center">
+        <button
+          class="btn btn-outline-dark"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseExample"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Show more information
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body fs-6">
+          <p class="text-justify">
+            I developed this face detection model based on the VGG16
+            architecture, utilizing transfer learning for better performance.
+            With approximately 100 self-collected facial images, I augmented the
+            dataset extensively, generating over 3000 diverse samples through
+            techniques like rotation, flipping, scaling, and noise addition.
+            Despite this robust training process, lagging in the video stream
+            could be attributed to factors such as processing intensity, network
+            latency, and resource allocation. Optimizing these aspects can
+            enhance the real-time performance of the application, ensuring
+            smoother video playback and efficient face detection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

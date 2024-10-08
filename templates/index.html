@@ -1,0 +1,60 @@
+{% extends 'base.html' %} 
+
+{% block title %}Live Face Detection{% endblock title%} 
+
+{% block styles %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='style.css') }}"
+/>
+<style>
+    .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-placement {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 50vh; /* Full viewport height */
+}
+</style>
+{% endblock styles %} 
+
+
+{% block body %}
+<div class="container body-2 mt-5" id="hiddenElement" style="display: none;">
+  <h1>Live Face Detection</h1>
+  <div class="monitor">
+    <div class="monitor-screen">
+      <img src="{{ url_for('video') }}" class="img-fluid" />
+    </div>
+    <div class="monitor-base"></div>
+    <div class="stand"></div>
+  </div>
+</div>
+
+<div class="container body-2 mt-5 loader-placement" id="visibleElement">
+    <div class="loader "></div>
+</div>
+
+<script>
+  //check if all external resources (images, scripts, etc.) have loaded
+  window.addEventListener("load", function () {
+    console.log("All resources loaded");
+    document.getElementById("hiddenElement").style.display = "block";
+    document.getElementById("visibleElement").style.display = "none";
+  });
+</script>
+{% endblock body %}
